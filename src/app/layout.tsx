@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { FacebookPixel } from "@/components/facebook-pixel";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { FloatingWhatsApp } from "@/components/whatsapp-button";
@@ -150,6 +151,7 @@ export default function RootLayout({
       className="h-full scroll-smooth antialiased"
     >
       <body className="flex min-h-full flex-col">
+        <FacebookPixel pixelId="27722412507444476" />
         <a className="skip-link" href="#main-content">
           Saltar al contenido
         </a>
@@ -164,7 +166,7 @@ export default function RootLayout({
           {children}
         </div>
         <Footer />
-        <FloatingWhatsApp />
+        <FloatingWhatsApp />   
       </body>
     </html>
   );

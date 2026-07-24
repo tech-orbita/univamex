@@ -39,7 +39,6 @@ export function FacebookPixel({ pixelId }: FacebookPixelProps) {
           'https://connect.facebook.net/en_US/fbevents.js');
 
           fbq('init', '${pixelId}');
-          fbq('track', 'PageView');
         `}
       </Script>
 

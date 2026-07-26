@@ -42,25 +42,24 @@ export function Header() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
     >
-      <div className="mx-auto flex min-h-[4.25rem] w-full max-w-7xl items-center justify-between gap-3 px-3 sm:min-h-[5.25rem] sm:gap-4 sm:px-6 lg:px-8">
+      <div className="flex min-h-[4.25rem] w-full items-center gap-3 px-3 sm:min-h-[5.25rem] sm:gap-4 sm:px-6 lg:gap-6 lg:px-7 2xl:px-8">
         <Link
           href="/"
-          className="group flex min-h-12 items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928]"
+          className="group relative flex h-12 w-[11rem] shrink-0 items-center overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928] sm:h-20 sm:w-[18rem]"
           onClick={() => setMobileOpen(false)}
         >
           <Image
             src={logoSrc}
             alt={`${siteConfig.name} Colegio Universitario`}
-            width={1920}
-            height={1080}
+            fill
             priority
-            sizes="(min-width: 768px) 267px, 176px"
-            className="h-[3.65rem] w-[11rem] object-contain object-left sm:h-[4.8rem] sm:w-[16.65rem]"
+            sizes="(min-width: 640px) 288px, 176px"
+            className="object-cover object-center"
           />
         </Link>
 
-        <nav aria-label="Navegación principal" className="hidden xl:block">
-          <ul className="flex items-center gap-1">
+        <nav aria-label="Navegación principal" className="hidden min-w-0 flex-1 xl:block">
+          <ul className="flex items-center justify-center gap-0.5 2xl:gap-1">
             {navItems.map((item) => {
               const active =
                 item.href === "/"
@@ -71,7 +70,7 @@ export function Header() {
                 <li key={item.href}>
                   <Link
                     className={cn(
-                      "inline-flex min-h-11 items-center px-3 text-xs font-bold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928] lg:px-4",
+                      "inline-flex min-h-11 items-center whitespace-nowrap px-3 text-sm font-bold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928] 2xl:px-4",
                       active
                         ? transparent
                           ? "text-white"
@@ -91,9 +90,9 @@ export function Header() {
           </ul>
         </nav>
 
-        <div className="hidden xl:block">
+        <div className="hidden shrink-0 xl:block">
           <WhatsAppButton
-            className="min-h-10 border-current px-4 py-2.5 text-xs"
+            className="min-h-11 border-current px-5 py-3 text-sm"
             label="Solicitar informes"
             source="Header"
             variant="secondary"

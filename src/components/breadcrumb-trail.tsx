@@ -24,7 +24,7 @@ export function BreadcrumbTrail({
       <Link
         aria-label={compact ? backLabel : undefined}
         className={compact
-          ? "inline-grid h-11 w-11 shrink-0 place-items-center border border-slate-200 bg-white text-[#1E3A8A] transition-colors hover:border-[#1E40AF] hover:text-[#1E40AF] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E40AF]"
+          ? "inline-grid h-11 w-8 shrink-0 place-items-center text-[#1E3A8A] transition-colors hover:text-[#1E40AF] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E40AF]"
           : "inline-flex min-h-11 w-fit items-center gap-2 text-sm font-semibold text-[#1E3A8A] transition-colors hover:text-[#1E40AF] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E40AF]"}
         href={backHref}
       >
@@ -32,8 +32,8 @@ export function BreadcrumbTrail({
         {compact ? null : backLabel}
       </Link>
 
-      <nav aria-label="Ruta de navegación" className={compact ? "min-w-0 flex-1 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" : undefined}>
-        <ol className={compact ? "flex min-w-max flex-nowrap items-center gap-0.5 whitespace-nowrap text-xs text-slate-600 sm:gap-1 sm:text-sm" : "flex flex-wrap items-center gap-x-1 gap-y-2 text-sm text-slate-600"}>
+      <nav aria-label="Ruta de navegación" className={compact ? "min-w-0 flex-1 overflow-hidden" : undefined}>
+        <ol className={compact ? "flex flex-nowrap items-center gap-0.5 whitespace-nowrap text-[0.7rem] text-slate-600 sm:gap-1 sm:text-sm" : "flex flex-wrap items-center gap-x-1 gap-y-2 text-sm text-slate-600"}>
           {items.map((item, index) => {
             const isCurrent = index === items.length - 1;
 

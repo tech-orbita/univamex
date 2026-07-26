@@ -1,0 +1,689 @@
+- generic [active] [ref=e1]:
+  - link "Saltar al contenido" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "UNIVAMEX Colegio Universitario" [ref=e6]
+      - navigation "Navegación principal" [ref=e7]:
+        - list [ref=e8]:
+          - listitem [ref=e9]:
+            - link "Inicio" [ref=e10] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e11]:
+            - link "Oferta académica" [ref=e12] [cursor=pointer]:
+              - /url: /oferta-academica
+          - listitem [ref=e13]:
+            - link "Admisiones" [ref=e14] [cursor=pointer]:
+              - /url: /admisiones
+          - listitem [ref=e15]:
+            - link "Campus" [ref=e16] [cursor=pointer]:
+              - /url: /campus
+          - listitem [ref=e17]:
+            - link "Quiénes somos" [ref=e18] [cursor=pointer]:
+              - /url: /quienes-somos
+          - listitem [ref=e19]:
+            - link "Contacto" [ref=e20] [cursor=pointer]:
+              - /url: /contacto
+      - link "Solicitar informes" [ref=e22] [cursor=pointer]:
+        - /url: https://wa.me/525529945381?text=Hola%2C%20quiero%20informes%20de%20UNIVAMEX.
+  - main [ref=e27]:
+    - generic [ref=e30]:
+      - link "Ir atrás" [ref=e31] [cursor=pointer]:
+        - /url: /oferta-academica/licenciaturas
+      - navigation "Ruta de navegación" [ref=e34]:
+        - list [ref=e35]:
+          - listitem [ref=e36]:
+            - link "Inicio" [ref=e37] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e38]:
+            - link "Oferta académica" [ref=e41] [cursor=pointer]:
+              - /url: /oferta-academica
+          - listitem [ref=e42]:
+            - link "Licenciatura" [ref=e45] [cursor=pointer]:
+              - /url: /oferta-academica/licenciaturas
+          - listitem [ref=e46]:
+            - generic [ref=e49]: IA y Big Data
+    - generic [ref=e50]:
+      - img "Estudiantes en programa de sistemas computacionales" [ref=e51]
+      - generic [ref=e54]:
+        - generic [ref=e55]:
+          - paragraph [ref=e56]: Licenciatura · Tecnología
+          - heading "Ingeniería en Inteligencia Artificial y Big Data" [level=1] [ref=e57]
+          - paragraph [ref=e58]: Aprende a crear soluciones con datos, programación, machine learning y ética tecnológica.
+          - generic [ref=e59]:
+            - link "Solicitar informes" [ref=e60] [cursor=pointer]:
+              - /url: https://wa.me/525529945381?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Ingenier%C3%ADa%20en%20Inteligencia%20Artificial%20y%20Big%20Data%20en%20UNIVAMEX.
+            - link "Ver plan de estudios" [ref=e64] [cursor=pointer]:
+              - /url: "#plan"
+        - paragraph [ref=e66]: Una ingeniería para convertir datos en sistemas inteligentes, combinando programación, análisis, modelos de IA y criterio para resolver problemas reales.
+    - region "Datos principales del programa" [ref=e67]:
+      - generic [ref=e68]:
+        - generic [ref=e69]:
+          - term [ref=e70]: Modalidad
+          - definition [ref=e71]: Escolarizada
+        - generic [ref=e72]:
+          - term [ref=e73]: Duración
+          - definition [ref=e74]: 3 años con 4 meses
+        - generic [ref=e75]:
+          - term [ref=e76]: RVOE
+          - definition [ref=e77]: "20253798"
+        - generic [ref=e78]:
+          - term [ref=e79]: Asignaturas
+          - definition [ref=e80]: 50 asignaturas
+        - generic [ref=e81]:
+          - term [ref=e82]: Área
+          - definition [ref=e83]: Tecnología
+    - navigation "Navegación de la ficha" [ref=e84]:
+      - generic [ref=e85]:
+        - link "La carrera" [ref=e86] [cursor=pointer]:
+          - /url: "#programa"
+        - link "Plan de estudios" [ref=e87] [cursor=pointer]:
+          - /url: "#plan"
+        - link "Aplicación profesional" [ref=e88] [cursor=pointer]:
+          - /url: "#aplicacion"
+        - link "Campus y validez" [ref=e89] [cursor=pointer]:
+          - /url: "#campus"
+        - link "Admisión" [ref=e90] [cursor=pointer]:
+          - /url: "#admisiones"
+    - generic [ref=e92]:
+      - generic [ref=e93]:
+        - paragraph [ref=e94]: La carrera
+        - heading "Una formación que conecta tu interés con una práctica profesional." [level=2] [ref=e95]
+      - generic [ref=e96]:
+        - paragraph [ref=e97]: Una ingeniería para convertir datos en sistemas inteligentes, combinando programación, análisis, modelos de IA y criterio para resolver problemas reales.
+        - group [ref=e98]:
+          - generic "¿Este programa es para ti?" [ref=e99] [cursor=pointer]:
+            - text: ¿Este programa es para ti?
+            - generic [ref=e100]: +
+          - generic [ref=e101]:
+            - paragraph [ref=e102]: Te interesa entender cómo aprenden los sistemas y cómo los datos pueden mejorar decisiones.
+            - paragraph [ref=e103]: Disfrutas las matemáticas, la programación y la experimentación con tecnología.
+            - paragraph [ref=e104]: Quieres construir soluciones inteligentes con impacto en organizaciones y personas.
+    - generic [ref=e106]:
+      - generic [ref=e107]:
+        - paragraph [ref=e108]: Plan de estudios
+        - heading "Mira cómo se construye tu recorrido académico." [level=2] [ref=e109]
+        - paragraph [ref=e110]: Consulta las asignaturas por periodo y etapa formativa. La tabla conserva el orden del documento académico y evita esconder el contenido detrás de listas cerradas.
+        - generic [ref=e111]:
+          - generic [ref=e112]:
+            - term [ref=e113]: Periodos
+            - definition [ref=e117]: 10 cuatrimestres
+          - generic [ref=e118]:
+            - term [ref=e119]: Carga académica
+            - definition [ref=e121]: 50 asignaturas
+          - generic [ref=e122]:
+            - term [ref=e123]: Etapas formativas
+            - definition [ref=e124]: Bloque básico · Bloque profesional · Bloque especialización
+      - generic [ref=e125]:
+        - generic [ref=e126]:
+          - generic [ref=e127]:
+            - generic [ref=e128]:
+              - paragraph [ref=e129]: Explora las asignaturas
+              - paragraph [ref=e132]: Filtra el plan por periodo o etapa formativa y abre una asignatura para revisar su ubicación oficial.
+            - paragraph [ref=e133]: 50 asignaturas visibles
+          - generic [ref=e134]:
+            - generic [ref=e135]:
+              - generic [ref=e136]: Ver por periodo
+              - combobox "Ver por periodo" [ref=e137]:
+                - option "Todos" [selected]
+                - option "Primer cuatrimestre"
+                - option "Segundo cuatrimestre"
+                - option "Tercer cuatrimestre"
+                - option "Cuarto cuatrimestre"
+                - option "Quinto cuatrimestre"
+                - option "Sexto cuatrimestre"
+                - option "Séptimo cuatrimestre"
+                - option "Octavo cuatrimestre"
+                - option "Noveno cuatrimestre"
+                - option "Décimo cuatrimestre"
+            - generic [ref=e138]:
+              - generic [ref=e139]: Filtrar por etapa
+              - combobox "Filtrar por etapa" [ref=e140]:
+                - option "Todas" [selected]
+                - option "Bloque básico"
+                - option "Bloque profesional"
+                - option "Bloque especialización"
+        - table [ref=e142]:
+          - caption [ref=e143]: Plan de estudios de Ingeniería en Inteligencia Artificial y Big Data
+          - rowgroup [ref=e144]:
+            - row [ref=e145]:
+              - columnheader "Periodo" [ref=e146]
+              - columnheader "Etapa formativa" [ref=e147]
+              - columnheader "Asignatura" [ref=e148]
+              - columnheader "Detalle" [ref=e149]
+          - rowgroup [ref=e151]:
+            - row [ref=e152]:
+              - cell "Primer cuatrimestre" [ref=e153]
+              - cell "Bloque básico" [ref=e154]
+              - cell [ref=e155]:
+                - button "Matemáticas" [ref=e156]
+              - cell [ref=e157]
+            - row [ref=e160]:
+              - cell "Primer cuatrimestre" [ref=e161]
+              - cell "Bloque básico" [ref=e162]
+              - cell [ref=e163]:
+                - button "Lógica matemática" [ref=e164]
+              - cell [ref=e165]
+            - row [ref=e168]:
+              - cell "Primer cuatrimestre" [ref=e169]
+              - cell "Bloque básico" [ref=e170]
+              - cell [ref=e171]:
+                - button "Introducción a la programación" [ref=e172]
+              - cell [ref=e173]
+            - row [ref=e176]:
+              - cell "Primer cuatrimestre" [ref=e177]
+              - cell "Bloque básico" [ref=e178]
+              - cell [ref=e179]:
+                - button "Física" [ref=e180]
+              - cell [ref=e181]
+            - row [ref=e184]:
+              - cell "Primer cuatrimestre" [ref=e185]
+              - cell "Bloque básico" [ref=e186]
+              - cell [ref=e187]:
+                - button "Comprensión de textos" [ref=e188]
+              - cell [ref=e189]
+            - row [ref=e192]:
+              - cell "Segundo cuatrimestre" [ref=e193]
+              - cell "Bloque básico" [ref=e194]
+              - cell [ref=e195]:
+                - button "Cálculo diferencial e integral" [ref=e196]
+              - cell [ref=e197]
+            - row [ref=e200]:
+              - cell "Segundo cuatrimestre" [ref=e201]
+              - cell "Bloque básico" [ref=e202]
+              - cell [ref=e203]:
+                - button "Probabilidad y estadística inferencial" [ref=e204]
+              - cell [ref=e205]
+            - row [ref=e208]:
+              - cell "Segundo cuatrimestre" [ref=e209]
+              - cell "Bloque básico" [ref=e210]
+              - cell [ref=e211]:
+                - button "Estructura de datos" [ref=e212]
+              - cell [ref=e213]
+            - row [ref=e216]:
+              - cell "Segundo cuatrimestre" [ref=e217]
+              - cell "Bloque básico" [ref=e218]
+              - cell [ref=e219]:
+                - button "Sistemas dinámicos" [ref=e220]
+              - cell [ref=e221]
+            - row [ref=e224]:
+              - cell "Segundo cuatrimestre" [ref=e225]
+              - cell "Bloque básico" [ref=e226]
+              - cell [ref=e227]:
+                - button "Metodología de la investigación" [ref=e228]
+              - cell [ref=e229]
+            - row [ref=e232]:
+              - cell "Tercer cuatrimestre" [ref=e233]
+              - cell "Bloque básico" [ref=e234]
+              - cell [ref=e235]:
+                - button "Cálculo multivariable" [ref=e236]
+              - cell [ref=e237]
+            - row [ref=e240]:
+              - cell "Tercer cuatrimestre" [ref=e241]
+              - cell "Bloque básico" [ref=e242]
+              - cell [ref=e243]:
+                - button "Teoría de la computación" [ref=e244]
+              - cell [ref=e245]
+            - row [ref=e248]:
+              - cell "Tercer cuatrimestre" [ref=e249]
+              - cell "Bloque básico" [ref=e250]
+              - cell [ref=e251]:
+                - button "Programación orientada a objetos" [ref=e252]
+              - cell [ref=e253]
+            - row [ref=e256]:
+              - cell "Tercer cuatrimestre" [ref=e257]
+              - cell "Bloque básico" [ref=e258]
+              - cell [ref=e259]:
+                - button "Bases de datos" [ref=e260]
+              - cell [ref=e261]
+            - row [ref=e264]:
+              - cell "Tercer cuatrimestre" [ref=e265]
+              - cell "Bloque básico" [ref=e266]
+              - cell [ref=e267]:
+                - button "Habilidades del pensamiento" [ref=e268]
+              - cell [ref=e269]
+            - row [ref=e272]:
+              - cell "Cuarto cuatrimestre" [ref=e273]
+              - cell "Bloque profesional" [ref=e274]
+              - cell [ref=e275]:
+                - button "Métodos numéricos y optimización" [ref=e276]
+              - cell [ref=e277]
+            - row [ref=e280]:
+              - cell "Cuarto cuatrimestre" [ref=e281]
+              - cell "Bloque profesional" [ref=e282]
+              - cell [ref=e283]:
+                - button "Algoritmos avanzados" [ref=e284]
+              - cell [ref=e285]
+            - row [ref=e288]:
+              - cell "Cuarto cuatrimestre" [ref=e289]
+              - cell "Bloque profesional" [ref=e290]
+              - cell [ref=e291]:
+                - button "Sistemas operativos" [ref=e292]
+              - cell [ref=e293]
+            - row [ref=e296]:
+              - cell "Cuarto cuatrimestre" [ref=e297]
+              - cell "Bloque profesional" [ref=e298]
+              - cell [ref=e299]:
+                - button "Análisis numéricos" [ref=e300]
+              - cell [ref=e301]
+            - row [ref=e304]:
+              - cell "Cuarto cuatrimestre" [ref=e305]
+              - cell "Bloque profesional" [ref=e306]
+              - cell [ref=e307]:
+                - button "Base de datos NoSQL y BIG DATA" [ref=e308]
+              - cell [ref=e309]
+            - row [ref=e312]:
+              - cell "Quinto cuatrimestre" [ref=e313]
+              - cell "Bloque profesional" [ref=e314]
+              - cell [ref=e315]:
+                - button "Aprendizaje automático I" [ref=e316]
+              - cell [ref=e317]
+            - row [ref=e320]:
+              - cell "Quinto cuatrimestre" [ref=e321]
+              - cell "Bloque profesional" [ref=e322]
+              - cell [ref=e323]:
+                - button "Introducción a BIG DATA" [ref=e324]
+              - cell [ref=e325]
+            - row [ref=e328]:
+              - cell "Quinto cuatrimestre" [ref=e329]
+              - cell "Bloque profesional" [ref=e330]
+              - cell [ref=e331]:
+                - button "Visión artificial I" [ref=e332]
+              - cell [ref=e333]
+            - row [ref=e336]:
+              - cell "Quinto cuatrimestre" [ref=e337]
+              - cell "Bloque profesional" [ref=e338]
+              - cell [ref=e339]:
+                - button "Introducción a las redes neuronales" [ref=e340]
+              - cell [ref=e341]
+            - row [ref=e344]:
+              - cell "Quinto cuatrimestre" [ref=e345]
+              - cell "Bloque profesional" [ref=e346]
+              - cell [ref=e347]:
+                - button "Programación avanzada" [ref=e348]
+              - cell [ref=e349]
+            - row [ref=e352]:
+              - cell "Sexto cuatrimestre" [ref=e353]
+              - cell "Bloque profesional" [ref=e354]
+              - cell [ref=e355]:
+                - button "Aprendizaje automático II" [ref=e356]
+              - cell [ref=e357]
+            - row [ref=e360]:
+              - cell "Sexto cuatrimestre" [ref=e361]
+              - cell "Bloque profesional" [ref=e362]
+              - cell [ref=e363]:
+                - button "Análisis masivo en BIG DATA" [ref=e364]
+              - cell [ref=e365]
+            - row [ref=e368]:
+              - cell "Sexto cuatrimestre" [ref=e369]
+              - cell "Bloque profesional" [ref=e370]
+              - cell [ref=e371]:
+                - button "Visión artificial II" [ref=e372]
+              - cell [ref=e373]
+            - row [ref=e376]:
+              - cell "Sexto cuatrimestre" [ref=e377]
+              - cell "Bloque profesional" [ref=e378]
+              - cell [ref=e379]:
+                - button "Deep learning y redes neuronales profundas" [ref=e380]
+              - cell [ref=e381]
+            - row [ref=e384]:
+              - cell "Sexto cuatrimestre" [ref=e385]
+              - cell "Bloque profesional" [ref=e386]
+              - cell [ref=e387]:
+                - button "Privacidad en BIG DATA" [ref=e388]
+              - cell [ref=e389]
+            - row [ref=e392]:
+              - cell "Séptimo cuatrimestre" [ref=e393]
+              - cell "Bloque especialización" [ref=e394]
+              - cell [ref=e395]:
+                - button "Comprensión de modelos en inteligencia artificial" [ref=e396]
+              - cell [ref=e397]
+            - row [ref=e400]:
+              - cell "Séptimo cuatrimestre" [ref=e401]
+              - cell "Bloque especialización" [ref=e402]
+              - cell [ref=e403]:
+                - button "Sistemas autónomos I" [ref=e404]
+              - cell [ref=e405]
+            - row [ref=e408]:
+              - cell "Séptimo cuatrimestre" [ref=e409]
+              - cell "Bloque especialización" [ref=e410]
+              - cell [ref=e411]:
+                - button "Análisis predictivos" [ref=e412]
+              - cell [ref=e413]
+            - row [ref=e416]:
+              - cell "Séptimo cuatrimestre" [ref=e417]
+              - cell "Bloque especialización" [ref=e418]
+              - cell [ref=e419]:
+                - button "Internet de las cosas (IaT) IA" [ref=e420]
+              - cell [ref=e421]
+            - row [ref=e424]:
+              - cell "Séptimo cuatrimestre" [ref=e425]
+              - cell "Bloque especialización" [ref=e426]
+              - cell [ref=e427]:
+                - button "Seguridad informática y privacidad de datos" [ref=e428]
+              - cell [ref=e429]
+            - row [ref=e432]:
+              - cell "Octavo cuatrimestre" [ref=e433]
+              - cell "Bloque especialización" [ref=e434]
+              - cell [ref=e435]:
+                - button "Inteligencia artificial aplicada a los negocios" [ref=e436]
+              - cell [ref=e437]
+            - row [ref=e440]:
+              - cell "Octavo cuatrimestre" [ref=e441]
+              - cell "Bloque especialización" [ref=e442]
+              - cell [ref=e443]:
+                - button "Sistemas autónomos II" [ref=e444]
+              - cell [ref=e445]
+            - row [ref=e448]:
+              - cell "Octavo cuatrimestre" [ref=e449]
+              - cell "Bloque especialización" [ref=e450]
+              - cell [ref=e451]:
+                - button "Algoritmos de aprendizaje profundo" [ref=e452]
+              - cell [ref=e453]
+            - row [ref=e456]:
+              - cell "Octavo cuatrimestre" [ref=e457]
+              - cell "Bloque especialización" [ref=e458]
+              - cell [ref=e459]:
+                - button "Optimización de algoritmos en tiempo real" [ref=e460]
+              - cell [ref=e461]
+            - row [ref=e464]:
+              - cell "Octavo cuatrimestre" [ref=e465]
+              - cell "Bloque especialización" [ref=e466]
+              - cell [ref=e467]:
+                - button "Computación cuantitativa avanzada" [ref=e468]
+              - cell [ref=e469]
+            - row [ref=e472]:
+              - cell "Noveno cuatrimestre" [ref=e473]
+              - cell "Bloque especialización" [ref=e474]
+              - cell [ref=e475]:
+                - button "Tendencias emergentes en inteligencia artificial y BIG DATA" [ref=e476]
+              - cell [ref=e477]
+            - row [ref=e480]:
+              - cell "Noveno cuatrimestre" [ref=e481]
+              - cell "Bloque especialización" [ref=e482]
+              - cell [ref=e483]:
+                - button "Simulación y modelo en BIG DATA" [ref=e484]
+              - cell [ref=e485]
+            - row [ref=e488]:
+              - cell "Noveno cuatrimestre" [ref=e489]
+              - cell "Bloque especialización" [ref=e490]
+              - cell [ref=e491]:
+                - button "Diseño de proyectos de inteligencia artificial y BIG DATA" [ref=e492]
+              - cell [ref=e493]
+            - row [ref=e496]:
+              - cell "Noveno cuatrimestre" [ref=e497]
+              - cell "Bloque especialización" [ref=e498]
+              - cell [ref=e499]:
+                - button "Diseño y evaluación de datos" [ref=e500]
+              - cell [ref=e501]
+            - row [ref=e504]:
+              - cell "Noveno cuatrimestre" [ref=e505]
+              - cell "Bloque especialización" [ref=e506]
+              - cell [ref=e507]:
+                - button "Seminario de innovación en inteligencia artificial" [ref=e508]
+              - cell [ref=e509]
+            - row [ref=e512]:
+              - cell "Décimo cuatrimestre" [ref=e513]
+              - cell "Bloque especialización" [ref=e514]
+              - cell [ref=e515]:
+                - button "Desarrollo de aplicaciones de inteligencia artificial" [ref=e516]
+              - cell [ref=e517]
+            - row [ref=e520]:
+              - cell "Décimo cuatrimestre" [ref=e521]
+              - cell "Bloque especialización" [ref=e522]
+              - cell [ref=e523]:
+                - button "Ética profesional en BIG DATA e inteligencia artificial" [ref=e524]
+              - cell [ref=e525]
+            - row [ref=e528]:
+              - cell "Décimo cuatrimestre" [ref=e529]
+              - cell "Bloque especialización" [ref=e530]
+              - cell [ref=e531]:
+                - button "Emprendimiento tecnológico en inteligencia artificial y BIG DATA" [ref=e532]
+              - cell [ref=e533]
+            - row [ref=e536]:
+              - cell "Décimo cuatrimestre" [ref=e537]
+              - cell "Bloque especialización" [ref=e538]
+              - cell [ref=e539]:
+                - button "Sistemas embebidos para inteligencia artificial" [ref=e540]
+              - cell [ref=e541]
+            - row [ref=e544]:
+              - cell "Décimo cuatrimestre" [ref=e545]
+              - cell "Bloque especialización" [ref=e546]
+              - cell [ref=e547]:
+                - button "Seminario de tesis" [ref=e548]
+              - cell [ref=e549]
+        - generic [ref=e552]:
+          - link "Preguntar por el plan" [ref=e553] [cursor=pointer]:
+            - /url: https://wa.me/525529945381?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Ingenier%C3%ADa%20en%20Inteligencia%20Artificial%20y%20Big%20Data%20en%20UNIVAMEX.%20Tengo%20una%20duda%20sobre%20el%20plan%20de%20estudios%2C%20sus%20asignaturas%20y%20la%20organizaci%C3%B3n%20de%20los%20periodos.
+          - link "Descargar plan de estudios de Ingeniería en Inteligencia Artificial y Big Data en PDF" [ref=e557] [cursor=pointer]:
+            - /url: /pdf/planes-estudio/ingenieria-ia-big-data.pdf
+            - text: Descargar PDF
+    - generic [ref=e562]:
+      - generic [ref=e563]:
+        - paragraph [ref=e564]: Lo que podrás hacer
+        - heading "La carrera se entiende mejor cuando ves dónde cobra sentido." [level=2] [ref=e565]
+      - generic [ref=e566]:
+        - article [ref=e567]:
+          - generic [ref=e568]:
+            - heading "IA aplicada" [level=2] [ref=e582]
+            - paragraph [ref=e583]: "La inteligencia artificial no aparece como adorno: se estudia para modelar información, automatizar procesos y construir soluciones evaluables."
+          - generic [ref=e584]:
+            - generic [ref=e585]:
+              - generic [ref=e586]: Modelos de machine learning
+              - generic [ref=e588]: Análisis predictivo
+              - generic [ref=e590]: Visión artificial
+              - generic [ref=e592]: Big Data en nube
+              - generic [ref=e594]: Gobernanza y ética de datos
+            - generic [ref=e596]:
+              - paragraph [ref=e597]: ¿Quieres entender cómo se desarrolla este enfoque en Ingeniería en Inteligencia Artificial y Big Data?
+              - link "Hablar con admisiones" [ref=e598] [cursor=pointer]:
+                - /url: https://wa.me/525529945381?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Ingenier%C3%ADa%20en%20Inteligencia%20Artificial%20y%20Big%20Data%20en%20UNIVAMEX.%20Tengo%20una%20duda%20sobre%20las%20aplicaciones%20de%20inteligencia%20artificial%20en%20esta%20carrera.
+        - article [ref=e602]:
+          - generic [ref=e603]:
+            - heading "Lo que desarrollarás" [level=2] [ref=e608]
+            - paragraph [ref=e609]: Desarrollarás bases para programar, analizar datos, evaluar modelos y comunicar decisiones técnicas.
+          - generic [ref=e610]:
+            - generic [ref=e611]:
+              - generic [ref=e612]: Análisis de Big Data
+              - generic [ref=e614]: Desarrollo de IA
+              - generic [ref=e616]: Programación avanzada
+              - generic [ref=e618]: Infraestructura de datos
+              - generic [ref=e620]: Visualización y toma de decisiones
+            - generic [ref=e622]:
+              - paragraph [ref=e623]: ¿Quieres entender cómo se desarrolla este enfoque en Ingeniería en Inteligencia Artificial y Big Data?
+              - link "Hablar con admisiones" [ref=e624] [cursor=pointer]:
+                - /url: https://wa.me/525529945381?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Ingenier%C3%ADa%20en%20Inteligencia%20Artificial%20y%20Big%20Data%20en%20UNIVAMEX.%20Tengo%20una%20duda%20sobre%20las%20habilidades%20y%20conocimientos%20del%20perfil%20de%20egreso.
+        - article [ref=e628]:
+          - generic [ref=e629]:
+            - heading "Dónde puedes aportar" [level=2] [ref=e635]
+            - paragraph [ref=e636]: El campo laboral incluye datos, software, automatización, analítica, producto digital, consultoría y áreas de innovación.
+          - generic [ref=e637]:
+            - generic [ref=e638]:
+              - generic [ref=e639]: Data Scientist
+              - generic [ref=e641]: Machine Learning Engineer
+              - generic [ref=e643]: Ingeniero de Datos
+              - generic [ref=e645]: BI Analyst
+              - generic [ref=e647]: Arquitecto de nube
+              - generic [ref=e649]: Ingeniero en IA
+            - generic [ref=e651]:
+              - paragraph [ref=e652]: ¿Quieres entender cómo se desarrolla este enfoque en Ingeniería en Inteligencia Artificial y Big Data?
+              - link "Hablar con admisiones" [ref=e653] [cursor=pointer]:
+                - /url: https://wa.me/525529945381?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Ingenier%C3%ADa%20en%20Inteligencia%20Artificial%20y%20Big%20Data%20en%20UNIVAMEX.%20Tengo%20una%20duda%20sobre%20los%20espacios%20profesionales%20relacionados%20con%20esta%20carrera.
+    - generic [ref=e658]:
+      - generic [ref=e659]:
+        - paragraph [ref=e660]: Antes de decidir
+        - heading "Confirma lo importante para tu siguiente paso." [level=2] [ref=e661]
+        - paragraph [ref=e662]: Revisa el campus, consulta la validez académica y pregunta por cualquier dato que necesite confirmación.
+      - generic [ref=e663]:
+        - link "Conocer campus Direcciones, espacios y recorrido virtual de UNIVAMEX." [ref=e664] [cursor=pointer]:
+          - /url: /campus
+          - generic [ref=e665]:
+            - strong [ref=e666]: Conocer campus
+            - generic [ref=e667]: Direcciones, espacios y recorrido virtual de UNIVAMEX.
+          - generic [ref=e668]: →
+        - link "Consultar validez académica Claves, modalidades y datos publicados por programa." [ref=e669] [cursor=pointer]:
+          - /url: /rvoe
+          - generic [ref=e670]:
+            - strong [ref=e671]: Consultar validez académica
+            - generic [ref=e672]: Claves, modalidades y datos publicados por programa.
+          - generic [ref=e673]: →
+        - link "Comparar programas Explora otras opciones por nivel y área académica." [ref=e674] [cursor=pointer]:
+          - /url: /oferta-academica
+          - generic [ref=e675]:
+            - strong [ref=e676]: Comparar programas
+            - generic [ref=e677]: Explora otras opciones por nivel y área académica.
+          - generic [ref=e678]: →
+    - generic [ref=e680]:
+      - generic [ref=e681]:
+        - paragraph [ref=e682]: Admisión
+        - heading "Si esta ruta tiene sentido para ti, hablemos del siguiente paso." [level=2] [ref=e683]
+        - paragraph [ref=e684]: Revisa la documentación correspondiente a tu nivel y recibe orientación directa sobre horarios, modalidad y fechas de inicio.
+        - generic [ref=e685]:
+          - link "Hablar con admisiones" [ref=e686] [cursor=pointer]:
+            - /url: https://wa.me/525529945381?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Ingenier%C3%ADa%20en%20Inteligencia%20Artificial%20y%20Big%20Data%20en%20UNIVAMEX.%20Tengo%20una%20duda%20sobre%20los%20requisitos%2C%20horarios%2C%20modalidad%20y%20fechas%20de%20inicio.
+          - link "Ver proceso completo" [ref=e690] [cursor=pointer]:
+            - /url: /admisiones
+      - article [ref=e693]:
+        - heading "Licenciatura" [level=3] [ref=e694]
+        - list [ref=e695]:
+          - listitem [ref=e696]:
+            - generic [ref=e700]: Acta de nacimiento
+          - listitem [ref=e701]:
+            - generic [ref=e705]: Certificado de bachillerato
+          - listitem [ref=e706]:
+            - generic [ref=e710]: Comprobante de domicilio
+          - listitem [ref=e711]:
+            - generic [ref=e715]: CURP
+          - listitem [ref=e716]:
+            - generic [ref=e720]: INE
+    - generic [ref=e722]:
+      - paragraph [ref=e723]: También puedes comparar
+      - heading "Otras opciones relacionadas con tu búsqueda." [level=2] [ref=e724]
+      - generic [ref=e725]:
+        - article [ref=e726]:
+          - img "Estudiantes en una charla académica de UNIVAMEX" [ref=e728]
+          - generic [ref=e729]:
+            - generic [ref=e730]:
+              - generic [ref=e731]: Bachillerato
+              - generic [ref=e732]: Presencial
+            - heading [level=3] [ref=e733]:
+              - link "Bachillerato en Informática Administrativa" [ref=e734] [cursor=pointer]:
+                - /url: /programas/bachillerato-informatica-administrativa
+            - paragraph [ref=e735]: Preparatoria con formación técnica en administración y tecnología para optimizar procesos empresariales, manejar información y apoyar operaciones digitales.
+            - generic [ref=e736]:
+              - generic [ref=e741]:
+                - term [ref=e742]: Duración
+                - definition [ref=e743]: 3 años
+              - generic [ref=e748]:
+                - term [ref=e749]: RVOE
+                - definition [ref=e750]: RVOE 956365
+            - generic [ref=e751]:
+              - link "Ver programa" [ref=e752] [cursor=pointer]:
+                - /url: /programas/bachillerato-informatica-administrativa
+              - link "Informes" [ref=e755] [cursor=pointer]:
+                - /url: https://wa.me/525529945381?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Bachillerato%20en%20Inform%C3%A1tica%20Administrativa%20en%20UNIVAMEX.
+        - article [ref=e759]:
+          - img "Clase de administración con estudiantes y docente" [ref=e761]
+          - generic [ref=e762]:
+            - generic [ref=e763]:
+              - generic [ref=e764]: Licenciatura
+              - generic [ref=e765]: Escolarizada / sabatina
+            - heading [level=3] [ref=e766]:
+              - link "Licenciatura en Administración" [ref=e767] [cursor=pointer]:
+                - /url: /programas/licenciatura-administracion
+            - paragraph [ref=e768]: Formación en administración, contabilidad, recursos humanos, finanzas, logística, mercadotecnia, calidad y emprendimiento.
+            - generic [ref=e769]:
+              - generic [ref=e774]:
+                - term [ref=e775]: Duración
+                - definition [ref=e776]: 3 años a 3 años 4 meses, según modalidad
+              - generic [ref=e781]:
+                - term [ref=e782]: RVOE
+                - definition [ref=e783]: RVOE 20081913/AG2008
+            - generic [ref=e784]:
+              - link "Ver programa" [ref=e785] [cursor=pointer]:
+                - /url: /programas/licenciatura-administracion
+              - link "Informes" [ref=e788] [cursor=pointer]:
+                - /url: https://wa.me/525529945381?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Licenciatura%20en%20Administraci%C3%B3n%20en%20UNIVAMEX.
+        - article [ref=e792]:
+          - img "Estudiantes de licenciatura en ceremonia académica" [ref=e794]
+          - generic [ref=e795]:
+            - generic [ref=e796]:
+              - generic [ref=e797]: Licenciatura
+              - generic [ref=e798]: Escolarizada
+            - heading [level=3] [ref=e799]:
+              - link "Licenciatura en Arquitectura" [ref=e800] [cursor=pointer]:
+                - /url: /programas/licenciatura-arquitectura
+            - paragraph [ref=e801]: Programa enfocado en historia, dibujo, proyectos, construcción, CAD, urbanismo, interiores, sustentabilidad y valuación.
+            - generic [ref=e802]:
+              - generic [ref=e807]:
+                - term [ref=e808]: Duración
+                - definition [ref=e809]: 3 años con 4 meses
+              - generic [ref=e814]:
+                - term [ref=e815]: RVOE
+                - definition [ref=e816]: RVOE 20253800
+            - generic [ref=e817]:
+              - link "Ver programa" [ref=e818] [cursor=pointer]:
+                - /url: /programas/licenciatura-arquitectura
+              - link "Informes" [ref=e821] [cursor=pointer]:
+                - /url: https://wa.me/525529945381?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Licenciatura%20en%20Arquitectura%20en%20UNIVAMEX.
+  - contentinfo [ref=e825]:
+    - generic [ref=e826]:
+      - generic [ref=e827]:
+        - img "UNIVAMEX" [ref=e828]
+        - paragraph [ref=e829]: Colegio Universitario del Valle de México - UNIVAMEX. Decídete a llegar más lejos estudiando lo que te apasiona.
+        - link "Solicitar informes" [ref=e831] [cursor=pointer]:
+          - /url: https://wa.me/525529945381?text=Hola%2C%20quiero%20informes%20de%20UNIVAMEX.
+      - generic [ref=e835]:
+        - heading "Navegación" [level=2] [ref=e836]
+        - list [ref=e837]:
+          - listitem [ref=e838]:
+            - link "Inicio" [ref=e839] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e840]:
+            - link "Oferta académica" [ref=e841] [cursor=pointer]:
+              - /url: /oferta-academica
+          - listitem [ref=e842]:
+            - link "Admisiones" [ref=e843] [cursor=pointer]:
+              - /url: /admisiones
+          - listitem [ref=e844]:
+            - link "Campus" [ref=e845] [cursor=pointer]:
+              - /url: /campus
+          - listitem [ref=e846]:
+            - link "Quiénes somos" [ref=e847] [cursor=pointer]:
+              - /url: /quienes-somos
+          - listitem [ref=e848]:
+            - link "Contacto" [ref=e849] [cursor=pointer]:
+              - /url: /contacto
+          - listitem [ref=e850]:
+            - link "Universidad en Ecatepec" [ref=e851] [cursor=pointer]:
+              - /url: /universidad-en-ecatepec
+          - listitem [ref=e852]:
+            - link "RVOE" [ref=e853] [cursor=pointer]:
+              - /url: /rvoe
+          - listitem [ref=e854]:
+            - link "Preguntas frecuentes" [ref=e855] [cursor=pointer]:
+              - /url: /faq
+          - listitem [ref=e856]:
+            - link "Recorrido 360" [ref=e857] [cursor=pointer]:
+              - /url: /recorrido-360
+      - generic [ref=e858]:
+        - heading "Contacto" [level=2] [ref=e859]
+        - list [ref=e860]:
+          - listitem [ref=e861]:
+            - link "55-80-82-57-96" [ref=e864] [cursor=pointer]:
+              - /url: tel:5580825796
+          - listitem [ref=e865]:
+            - link "informes@univamex.edu.mx" [ref=e869] [cursor=pointer]:
+              - /url: mailto:informes@univamex.edu.mx
+          - listitem [ref=e870]:
+            - generic [ref=e874]: Lunes a sábado, de 8:00 a 18:00 h
+          - listitem [ref=e875]:
+            - generic [ref=e882]: Colegio Universitario del Valle de México - UNIVAMEX
+          - listitem [ref=e883]:
+            - link "Instagram oficial" [ref=e887] [cursor=pointer]:
+              - /url: https://www.instagram.com/univamex_oficial/
+  - link "Solicitar informes por WhatsApp" [ref=e889] [cursor=pointer]:
+    - /url: https://wa.me/525529945381?text=Hola%2C%20quiero%20informes%20de%20UNIVAMEX.
+  - button "Open Next.js Dev Tools" [ref=e898] [cursor=pointer]

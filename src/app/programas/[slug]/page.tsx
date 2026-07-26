@@ -6,9 +6,9 @@ import { AdmissionsChecklist } from "@/components/admissions-checklist";
 import { BreadcrumbTrail } from "@/components/breadcrumb-trail";
 import { ProgramCard } from "@/components/program-card";
 import { ProgramInsights } from "@/components/program-insights";
-import { SectionHeading } from "@/components/section-heading";
 import { StudyPlan, StudyPlanOverview } from "@/components/study-plan";
 import { WhatsAppButton } from "@/components/whatsapp-button";
+import { getProgramStory } from "@/data/program-stories";
 import { seoConfig } from "@/data/seo";
 import {
   getProgramBySlug,
@@ -32,17 +32,13 @@ export async function generateMetadata({
   const program = getProgramBySlug(slug);
 
   if (!program) {
-    return {
-      title: "Programa no encontrado",
-    };
+    return { title: "Programa no encontrado" };
   }
 
   return {
     title: `${program.shortName} en Ecatepec`,
     description: `${program.description} Consulta modalidad, duración, RVOE, plan de estudios y admisiones de ${program.name} en Ecatepec.`,
-    alternates: {
-      canonical: `/programas/${program.slug}`,
-    },
+    alternates: { canonical: `/programas/${program.slug}` },
     openGraph: {
       title: `${program.name} | UNIVAMEX`,
       description: program.promise,
@@ -53,7 +49,7 @@ export async function generateMetadata({
           url: seoConfig.socialImage,
           width: 1200,
           height: 630,
-          alt: "UNIVAMEX, oferta academica y admisiones",
+          alt: "UNIVAMEX, oferta académica y admisiones",
         },
       ],
       locale: "es_MX",
@@ -76,8 +72,10 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
     notFound();
   }
 
+  const story = getProgramStory(program.slug);
   const related = getRelatedPrograms(program);
   const programUrl = `https://www.univamex.com/programas/${program.slug}`;
+  const rvoe = program.rvoeStatus === "review" ? `${program.rvoe} · por confirmar` : program.rvoe;
   const structuredData = [
     {
       "@context": "https://schema.org",
@@ -104,174 +102,248 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
     },
   ];
 
+  const orientationItems = [
+    ["Modalidad", program.modality],
+    ["Duración", program.duration],
+    ["RVOE", rvoe],
+    ["Asignaturas", program.subjects ?? "por confirmar"],
+    ["Área", program.area],
+  ];
+
   return (
-    <main>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
-      <section className="bg-[#F8FAFC] px-4 py-7 sm:px-6 sm:py-10 lg:px-10">
+    <main className="w-full max-w-full overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
+      />
+
+      <section className="bg-[#f8fafc] px-4 py-3 sm:px-6 sm:py-4 lg:px-10">
         <div className="mx-auto max-w-7xl">
           <BreadcrumbTrail
             backHref={programLevelRoutes[program.level]}
             compact
             items={[
-              { href: "/", label: "Inicio" },
-              { href: "/oferta-academica", label: "Oferta académica" },
               { href: programLevelRoutes[program.level], label: program.level },
               { label: program.shortName },
             ]}
           />
+        </div>
+      </section>
 
-          <div className="mt-4 grid gap-4 sm:mt-6 sm:gap-6 lg:grid-cols-[1fr_0.9fr] lg:items-center lg:gap-10">
-            <div className="contents lg:block">
-              <div className="order-0">
-                <p className="text-sm font-bold text-[#B45309]">
-                  {program.level} · {program.area}
-                </p>
-                <h1 className="mt-2 font-heading text-[2rem] font-semibold leading-[1.02] tracking-normal text-[#04215e] sm:mt-3 sm:text-5xl sm:leading-[0.98]">
-                  {program.name}
-                </h1>
-                <p className="mt-3 max-w-2xl text-base leading-6 text-slate-600 sm:mt-5 sm:text-lg sm:leading-8">
-                  {program.promise}
-                </p>
-              </div>
-              <dl className="order-2 grid grid-cols-2 gap-2 sm:gap-3 lg:mt-8">
-                {[
-                  ["Modalidad", program.modality],
-                  ["Duración", program.duration],
-                  ["RVOE", program.rvoe],
-                  ["Materias", program.subjects ?? "por confirmar"],
-                ].map(([label, value]) => (
-                  <div
-                    className="min-w-0 rounded-lg border border-slate-200 bg-white p-2.5 sm:p-4"
-                    key={label}
-                  >
-                    <dt className="text-xs font-bold text-slate-500">
-                      {label}
-                    </dt>
-                    <dd className="mt-1 break-words text-sm font-semibold leading-5 text-[#0F172A] sm:text-base sm:leading-6">
-                      {value}
-                      {label === "RVOE" && program.rvoeStatus === "review" ? (
-                        <span className="text-[#B45309]"> por confirmar</span>
-                      ) : null}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-              <div className="order-3 grid grid-cols-2 gap-2 sm:flex sm:gap-3 lg:mt-8">
-                <WhatsAppButton program={program.name} />
-                <Link
-                  className="inline-flex min-h-11 items-center justify-center rounded-lg border border-[#CBD5E1] bg-white px-3 py-2 text-sm font-semibold text-[#1E3A8A] transition hover:border-[#1E40AF] hover:bg-[#EFF6FF] sm:px-5 sm:py-3"
-                  href="/admisiones"
-                >
-                  Ver requisitos
-                </Link>
-              </div>
-            </div>
+      <section className="relative isolate overflow-hidden bg-[#04215e] text-white">
+        <div className="absolute inset-0">
+          <Image
+            src={program.image}
+            alt={program.imageAlt}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center saturate-[0.85]"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,33,94,0.98)_0%,rgba(4,33,94,0.88)_30%,rgba(4,33,94,0.38)_62%,rgba(4,33,94,0.08)_100%)]" />
+        </div>
 
-            <div className="relative order-1 aspect-[16/10] overflow-hidden rounded-lg border border-slate-200 bg-slate-100 shadow-xl shadow-slate-900/10 lg:order-none lg:aspect-[4/3]">
-              <Image
-                src={program.image}
-                alt={program.imageAlt}
-                fill
-                priority
-                sizes="(min-width: 1024px) 45vw, 100vw"
-                className="object-cover"
+        <div className="relative z-10 mx-auto flex min-h-[35rem] max-w-7xl items-center pb-40 pt-10 sm:min-h-[38rem] sm:pb-32 sm:pt-14 lg:min-h-[clamp(34rem,calc(100svh-14rem),48rem)] lg:pb-32 lg:pt-0">
+          <div className="flex max-w-3xl items-center px-4 sm:px-6 lg:px-10 lg:py-20">
+            <div>
+            <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#f0bd4b]">
+              {program.level} · {program.area}
+            </p>
+            <h1 className="mt-4 max-w-2xl font-heading text-[clamp(2rem,3.8vw,4rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-balance">
+              {program.name}
+            </h1>
+            <p className="mt-5 max-w-xl text-base leading-7 text-white/85 sm:text-lg sm:leading-8">
+              {program.promise}
+            </p>
+            <div className="mt-7 flex flex-wrap items-center gap-2.5 sm:gap-3">
+              <WhatsAppButton
+                className="w-fit !px-4 !text-xs sm:!text-sm"
+                label="Solicitar informes"
+                program={program.name}
+                source="Hero de programa"
+                variant="accent"
               />
+              <a
+                className="inline-flex min-h-11 w-fit items-center justify-center border border-white/80 bg-white/5 px-4 py-3 text-xs font-bold text-white transition hover:border-white hover:bg-white hover:text-[#04215e] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928] sm:min-h-12 sm:px-5 sm:text-sm"
+                href="#plan"
+              >
+                Ver plan de estudios
+              </a>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="absolute inset-x-4 bottom-5 z-20 mx-auto max-w-7xl sm:inset-x-6 sm:bottom-7 lg:inset-x-10">
+          <div className="grid grid-cols-2 gap-px border border-slate-200/80 bg-slate-200/80 shadow-2xl shadow-slate-950/30 sm:grid-cols-4">
+            {orientationItems.slice(0, 4).map(([label, value]) => (
+              <dl className="min-w-0 bg-white px-3 py-3 text-[#04215e] sm:px-5 sm:py-4" key={label}>
+                <dt className="text-[0.65rem] font-bold uppercase tracking-[0.1em] text-slate-500 sm:text-xs">{label}</dt>
+                <dd className="mt-1 break-words text-xs font-bold leading-5 sm:text-sm">{value}</dd>
+              </dl>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <nav aria-label="Navegación de la ficha" className="sticky top-[4.25rem] z-30 border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur sm:top-20">
+        <div className="mx-auto flex max-w-7xl overflow-x-auto px-4 sm:px-6 lg:px-10">
+          {[
+            ["La carrera", "#programa"],
+            ["Plan de estudios", "#plan"],
+            ["Aplicación profesional", "#aplicacion"],
+            ["Campus y validez", "#campus"],
+            ["Admisión", "#admisiones"],
+          ].map(([label, href]) => (
+            <a
+              className="inline-flex min-h-14 shrink-0 items-center border-b-2 border-transparent px-4 text-sm font-bold text-slate-600 transition hover:border-[#e7a928] hover:text-[#04215e] focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#e7a928] first:pl-0"
+              href={href}
+              key={href}
+            >
+              {label}
+            </a>
+          ))}
+        </div>
+      </nav>
+
+      <section className="bg-white px-4 py-12 sm:px-6 sm:py-16 lg:px-10" id="programa">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-6 border-b border-slate-200 pb-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-end lg:gap-16">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#b45309]">La carrera</p>
+              <h2 className="mt-2 max-w-md font-editorial text-3xl font-semibold leading-[1.05] text-[#04215e] sm:text-4xl">
+                Una ruta académica con un propósito profesional claro.
+              </h2>
+            </div>
+            <p className="max-w-3xl text-lg leading-8 text-slate-700">{story.summary}</p>
+          </div>
+
+          <div className="mt-8 grid gap-6 lg:grid-cols-[0.7fr_1.3fr] lg:gap-16">
+            <div>
+              <h3 className="font-editorial text-2xl font-semibold text-[#04215e]">¿Este programa es para ti?</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">Tres señales para reconocer si esta formación coincide con lo que estás buscando.</p>
+            </div>
+            <div className="grid border-y border-slate-200 sm:grid-cols-3">
+              {story.fit.map((item) => (
+                <p className="border-b border-slate-200 px-4 py-4 text-sm leading-6 text-slate-700 last:border-b-0 sm:border-b-0 sm:border-r sm:px-5 sm:last:border-r-0" key={item}>
+                  {item}
+                </p>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-white px-4 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-16">
-        <div className="mx-auto grid max-w-7xl gap-6 sm:gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-10">
-          <SectionHeading
-            title="Resumen del programa"
-            description={program.description}
-          />
-          <details className="group border-y border-slate-200 bg-[#F8FAFC]" open>
-            <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 px-3 font-editorial text-lg font-semibold text-[#04215e] marker:hidden sm:min-h-14 sm:px-4 sm:text-xl">
-              <span>¿Este programa es para ti?</span>
-              <span aria-hidden="true" className="text-2xl font-normal leading-none text-[#1e40af] transition-transform group-open:rotate-45">+</span>
-            </summary>
-            <ul className="divide-y divide-slate-200 border-t border-slate-200 px-3 sm:px-4">
-              {(program.entryProfile ?? [
-                "Aspirantes con interés en el área profesional del programa.",
-                "Personas que buscan una ruta académica con aplicación práctica.",
-                "Estudiantes que quieren resolver dudas con asesoría directa.",
-              ]).map((item, index) => (
-                <li className="grid grid-cols-[1.75rem_1fr] gap-2 py-2.5 text-sm leading-5 text-slate-700 sm:py-3" key={item}>
-                  <span className="font-editorial font-semibold tabular-nums text-[#1e40af]">{String(index + 1).padStart(2, "0")}</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </details>
-        </div>
-      </section>
-
-      <section className="bg-[#F8FAFC] px-4 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-16">
-        <div className="mx-auto grid max-w-7xl gap-6 sm:gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-10">
-          <div>
-            <SectionHeading
-              title="Plan de estudios"
-              description="Consulta todas las asignaturas del programa, organizadas según el periodo y la etapa formativa indicados en su documento académico."
-            />
-            <StudyPlanOverview items={program.studyPlan} />
-          </div>
-          <StudyPlan
-            items={program.studyPlan}
-            pdfHref={`/pdf/planes-estudio/${program.slug}.pdf`}
-            programName={program.name}
-          />
-        </div>
-      </section>
-
-      <section className="bg-[#EFF6FF] px-4 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-16">
+      <section className="bg-[#f3f6fb] px-4 py-12 sm:px-6 sm:py-16 lg:px-10" id="plan">
         <div className="mx-auto max-w-7xl">
+          <div className="grid gap-5 border-b border-slate-200 pb-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end lg:gap-16">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#b45309]">Plan de estudios</p>
+              <h2 className="mt-2 max-w-xl font-editorial text-3xl font-semibold leading-[1.05] text-[#04215e] sm:text-4xl">
+                Consulta las materias por periodo.
+              </h2>
+            </div>
+            <p className="max-w-3xl text-base leading-7 text-slate-600">
+              El plan conserva el orden académico oficial y agrupa las asignaturas dentro de cada periodo para que puedas comparar el recorrido completo de un vistazo.
+            </p>
+          </div>
+          <StudyPlanOverview items={program.studyPlan} />
+          <div className="mt-8">
+            <StudyPlan
+              items={program.studyPlan}
+              pdfHref={`/pdf/planes-estudio/${program.slug}.pdf`}
+              programName={program.name}
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#eff6ff] px-4 py-14 sm:px-6 sm:py-20 lg:px-10" id="aplicacion">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10 max-w-3xl">
+            <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#b45309]">Lo que podrás hacer</p>
+            <h2 className="mt-3 font-editorial text-4xl font-semibold leading-[1.02] text-[#04215e] sm:text-5xl">
+              La carrera se entiende mejor cuando ves dónde cobra sentido.
+            </h2>
+          </div>
           <ProgramInsights
             aiApplications={program.aiApplications}
+            aiLead={story.aiLead}
             careerField={program.careerField}
+            careerLead={story.careerLead}
             graduateProfile={program.graduateProfile}
+            profileLead={story.profileLead}
             programName={program.name}
           />
         </div>
       </section>
 
-      <section className="bg-white px-4 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-16">
-        <div className="mx-auto grid max-w-7xl gap-6 sm:gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-10">
-          <SectionHeading title={`${program.shortName} en Ecatepec`} description={`Estudia ${program.name} en UNIVAMEX. La ficha reúne la información académica disponible para comparar esta opción con otros programas de ${program.area.toLowerCase()}.`} />
-          <div className="grid grid-cols-2 gap-2 sm:gap-4">
-            <Link className="border border-slate-200 bg-[#F8FAFC] p-5" href="/campus"><h2 className="font-editorial text-xl font-semibold text-[#04215e]">Campus</h2><p className="mt-2 text-sm leading-6 text-slate-600">Consulta direcciones, mapas, rutas, espacios y el recorrido virtual 360.</p></Link>
-            <Link className="border border-slate-200 bg-[#F8FAFC] p-5" href="/rvoe"><h2 className="font-editorial text-xl font-semibold text-[#04215e]">RVOE y validez académica</h2><p className="mt-2 text-sm leading-6 text-slate-600">Compara las claves publicadas junto con la modalidad y duración de cada programa.</p></Link>
+      <section className="bg-white px-4 py-14 sm:px-6 sm:py-20 lg:px-10" id="campus">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#b45309]">Antes de decidir</p>
+            <h2 className="mt-3 max-w-lg font-editorial text-4xl font-semibold leading-[1.02] text-[#04215e] sm:text-5xl">
+              Confirma lo importante para tu siguiente paso.
+            </h2>
+            <p className="mt-5 max-w-md text-base leading-7 text-slate-600">
+              Revisa el campus, consulta la validez académica y pregunta por cualquier dato que necesite confirmación.
+            </p>
+          </div>
+          <div className="divide-y divide-slate-200 border-y border-slate-200">
+            <Link className="group flex min-h-24 items-center justify-between gap-6 py-5 transition hover:bg-[#f8fafc] sm:px-5" href="/campus">
+              <span><strong className="block font-editorial text-2xl font-semibold text-[#04215e]">Conocer campus</strong><span className="mt-1 block text-sm leading-6 text-slate-600">Direcciones, espacios y recorrido virtual de UNIVAMEX.</span></span>
+              <span aria-hidden="true" className="text-2xl text-[#1e40af] transition-transform group-hover:translate-x-1">→</span>
+            </Link>
+            <Link className="group flex min-h-24 items-center justify-between gap-6 py-5 transition hover:bg-[#f8fafc] sm:px-5" href="/rvoe">
+              <span><strong className="block font-editorial text-2xl font-semibold text-[#04215e]">Consultar validez académica</strong><span className="mt-1 block text-sm leading-6 text-slate-600">Claves, modalidades y datos publicados por programa.</span></span>
+              <span aria-hidden="true" className="text-2xl text-[#1e40af] transition-transform group-hover:translate-x-1">→</span>
+            </Link>
+            <Link className="group flex min-h-24 items-center justify-between gap-6 py-5 transition hover:bg-[#f8fafc] sm:px-5" href="/oferta-academica">
+              <span><strong className="block font-editorial text-2xl font-semibold text-[#04215e]">Comparar programas</strong><span className="mt-1 block text-sm leading-6 text-slate-600">Explora otras opciones por nivel y área académica.</span></span>
+              <span aria-hidden="true" className="text-2xl text-[#1e40af] transition-transform group-hover:translate-x-1">→</span>
+            </Link>
           </div>
         </div>
       </section>
 
-      <section className="bg-white px-4 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-16">
-        <div className="mx-auto grid max-w-7xl gap-6 sm:gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-10">
+      <section className="bg-[#04215e] px-4 py-14 text-white sm:px-6 sm:py-20 lg:px-10" id="admisiones">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <div>
-            <SectionHeading
-              title="Requisitos de admisión"
-              description="Documentos solicitados para iniciar tu proceso."
-            />
-            <div className="mt-5 sm:mt-8">
+            <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#f0bd4b]">Admisión</p>
+            <h2 className="mt-3 max-w-lg font-editorial text-4xl font-semibold leading-[1.02] sm:text-5xl">
+              Si esta ruta tiene sentido para ti, hablemos del siguiente paso.
+            </h2>
+            <p className="mt-5 max-w-md text-base leading-7 text-white/75">
+              Revisa la documentación correspondiente a tu nivel y recibe orientación directa sobre horarios, modalidad y fechas de inicio.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <WhatsAppButton
-                label="Revisar documentos"
+                className="w-full sm:w-fit"
+                label="Hablar con admisiones"
                 program={program.name}
+                question="los requisitos, horarios, modalidad y fechas de inicio"
+                source="Cierre de ficha de programa"
+                variant="accent"
               />
+              <Link className="inline-flex min-h-12 w-full items-center justify-center border border-white/60 px-5 py-3 text-sm font-bold text-white transition hover:bg-white hover:text-[#04215e] sm:w-fit" href="/admisiones">
+                Ver proceso completo
+              </Link>
             </div>
           </div>
-          <AdmissionsChecklist level={program.requirementsLevel} />
+          <div className="border border-white/20 bg-white p-4 text-[#04215e] sm:p-8">
+            <AdmissionsChecklist level={program.requirementsLevel} />
+          </div>
         </div>
       </section>
 
       {related.length ? (
-        <section className="bg-[#F8FAFC] px-4 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-16">
+        <section className="bg-[#f8fafc] px-4 py-14 sm:px-6 sm:py-20 lg:px-10">
           <div className="mx-auto max-w-7xl">
-            <SectionHeading
-              title="Programas relacionados"
-              description="Compara opciones cercanas por área o nivel."
-            />
-            <div className="mt-5 grid gap-4 sm:mt-8 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
+            <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#b45309]">También puedes comparar</p>
+            <h2 className="mt-3 max-w-2xl font-editorial text-4xl font-semibold leading-[1.02] text-[#04215e] sm:text-5xl">
+              Otras opciones relacionadas con tu búsqueda.
+            </h2>
+            <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {related.map((candidate) => (
                 <ProgramCard key={candidate.slug} program={candidate} />
               ))}
@@ -282,6 +354,3 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
     </main>
   );
 }
-
-
-

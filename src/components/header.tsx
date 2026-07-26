@@ -45,7 +45,7 @@ export function Header() {
       <div className="flex min-h-[4.25rem] w-full items-center gap-3 px-3 sm:min-h-[5.25rem] sm:gap-4 sm:px-6 lg:gap-6 lg:px-7 2xl:px-8">
         <Link
           href="/"
-          className="group relative flex h-12 w-[11rem] shrink-0 items-center overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928] sm:h-20 sm:w-[18rem]"
+          className="group relative flex h-14 w-[11rem] shrink-0 items-center overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928] sm:h-[4.75rem] sm:w-[15rem]"
           onClick={() => setMobileOpen(false)}
         >
           <Image
@@ -53,7 +53,7 @@ export function Header() {
             alt={`${siteConfig.name} Colegio Universitario`}
             fill
             priority
-            sizes="(min-width: 640px) 288px, 176px"
+            sizes="(min-width: 640px) 240px, 176px"
             className="object-cover object-center"
           />
         </Link>
@@ -104,7 +104,7 @@ export function Header() {
           aria-expanded={mobileOpen}
           aria-label={mobileOpen ? "Cerrar menu" : "Abrir menu"}
           className={cn(
-            "inline-flex min-h-11 min-w-11 items-center justify-center border p-2 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928] xl:hidden",
+            "ml-auto inline-flex min-h-11 min-w-11 items-center justify-center border p-2 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928] xl:hidden xl:ml-0",
             transparent
               ? "border-white/30 text-white hover:bg-white/10"
               : "border-[#d9e0ec] text-[#04215e] hover:bg-[#04215e]/6",

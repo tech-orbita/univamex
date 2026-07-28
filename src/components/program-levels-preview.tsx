@@ -67,7 +67,10 @@ export function ProgramLevelsPreview() {
       id="oferta"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col gap-4 sm:gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div
+          className="flex flex-col gap-4 sm:gap-6 lg:flex-row lg:items-end lg:justify-between"
+          data-motion="rise"
+        >
           <div className="max-w-3xl">
             <p className="text-sm font-bold text-[#b45309]">
               Oferta académica vigente
@@ -89,7 +92,10 @@ export function ProgramLevelsPreview() {
           </Link>
         </div>
 
-        <div className="mt-6 grid gap-3 sm:mt-8 sm:gap-4 md:grid-cols-2 xl:mt-10 xl:grid-cols-12 xl:grid-rows-2">
+        <div
+          className="mt-6 grid gap-3 sm:mt-8 sm:gap-4 md:grid-cols-2 xl:mt-10 xl:grid-cols-12 xl:grid-rows-2"
+          data-motion-group
+        >
           {levelCards.map((card) => {
             const count = programs.filter(
               (program) => program.level === card.level,
@@ -97,7 +103,8 @@ export function ProgramLevelsPreview() {
 
             return (
               <article
-                className={`group relative min-h-[17rem] min-w-0 overflow-hidden border border-slate-200 bg-[#071a3d] sm:min-h-[22rem] ${card.layout}`}
+                className={`group relative min-h-[17rem] min-w-0 overflow-hidden border border-slate-200 bg-[#071a3d] transition duration-500 hover:-translate-y-1 hover:border-[#e7a928] hover:shadow-2xl hover:shadow-slate-950/15 focus-within:-translate-y-1 focus-within:border-[#e7a928] focus-within:shadow-2xl focus-within:shadow-slate-950/15 sm:min-h-[22rem] ${card.layout}`}
+                data-motion-item
                 key={card.level}
               >
                 <Link
@@ -109,7 +116,7 @@ export function ProgramLevelsPreview() {
                     alt={card.imageAlt}
                     fill
                     sizes={card.sizes}
-                    className="object-cover transition duration-300 ease-out group-hover:scale-[1.025]"
+                    className="object-cover transition duration-700 ease-out group-hover:scale-105 group-focus-within:scale-105"
                   />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,33,94,0.12)_0%,rgba(4,33,94,0.46)_45%,rgba(3,19,49,0.96)_100%)]" />
                   <div className="relative z-10 flex items-start justify-between gap-4">

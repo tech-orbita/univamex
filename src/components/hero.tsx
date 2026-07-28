@@ -67,8 +67,13 @@ export function Hero({
       aria-label="Presentación de UNIVAMEX"
       aria-roledescription="carrusel"
       className="relative isolate min-h-[38rem] overflow-hidden bg-[#02183f] text-white sm:min-h-[48rem] lg:min-h-[50rem]"
+      data-motion-hero-section
     >
-      <div aria-hidden="true" className="absolute inset-0">
+      <div
+        aria-hidden="true"
+        className="absolute inset-0"
+        data-motion-hero-media
+      >
         {slides.map((slide, index) => {
           const active = index === activeSlide;
 
@@ -110,41 +115,42 @@ export function Hero({
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(2,24,63,0.55)_0%,rgba(2,24,63,0.08)_44%,rgba(2,24,63,0.45)_100%)]" />
 
       <div className="relative z-10 mx-auto flex min-h-[38rem] max-w-7xl items-center px-4 pb-16 pt-[6.75rem] sm:min-h-[48rem] sm:px-8 sm:pb-28 sm:pt-[9rem] lg:min-h-[50rem] lg:px-10 lg:pb-28 lg:pt-[9rem]">
-        <motion.div
-          className="max-w-[46rem]"
-          initial={reduceMotion ? false : { opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <h1 className="flex flex-col items-start gap-[0.08em] text-[clamp(2.05rem,10vw,2.6rem)] font-medium leading-[0.95] tracking-[-0.035em] drop-shadow-[0_2px_12px_rgba(2,24,63,0.5)] [font-family:var(--font-soft-display)] sm:gap-[0.12em] sm:text-[clamp(4rem,7.2vw,6rem)] sm:leading-[0.92]">
-            {titleLines.map((line) => (
-              <span className="whitespace-nowrap" key={line}>{line}</span>
-            ))}
-          </h1>
-          <p className="mt-6 max-w-[38rem] text-base leading-7 text-white/88 sm:text-lg sm:leading-8">
-            {description}
-          </p>
+        <div className="max-w-[46rem]" data-motion-hero-copy>
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <h1 className="flex flex-col items-start gap-[0.08em] text-[clamp(2.05rem,10vw,2.6rem)] font-medium leading-[0.95] tracking-[-0.035em] drop-shadow-[0_2px_12px_rgba(2,24,63,0.5)] [font-family:var(--font-soft-display)] sm:gap-[0.12em] sm:text-[clamp(4rem,7.2vw,6rem)] sm:leading-[0.92]">
+              {titleLines.map((line) => (
+                <span className="whitespace-nowrap" key={line}>{line}</span>
+              ))}
+            </h1>
+            <p className="mt-5 max-w-[19rem] text-sm leading-6 text-white/88 sm:mt-6 sm:max-w-[34rem] sm:text-base sm:leading-7">
+              {description}
+            </p>
 
-          <div className="mt-6 flex flex-col items-start gap-3 sm:mt-8 sm:flex-row sm:items-center sm:gap-8">
-            <WhatsAppButton
-              className="min-h-12 px-6 py-3.5"
-              label="Solicitar informes"
-              question={whatsappQuestion}
-              source={whatsappSource}
-              variant="accent"
-            />
-            <Link
-              className="group inline-flex min-h-12 items-center gap-3 border-b border-[#e7a928] px-0 text-sm font-bold text-white transition hover:border-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e7a928]"
-              href="/oferta-academica"
-            >
-              Ver oferta académica
-              <ArrowRight
-                aria-hidden="true"
-                className="h-4 w-4 text-[#e7a928] transition-transform group-hover:translate-x-1"
+            <div className="mt-5 flex flex-nowrap items-center gap-2 sm:mt-7 sm:gap-3">
+              <WhatsAppButton
+                className="min-h-11 shrink-0 !gap-1.5 !px-3 !py-2 !text-xs sm:!gap-2 sm:!px-4 sm:!text-sm"
+                label="Solicitar informes"
+                question={whatsappQuestion}
+                source={whatsappSource}
+                variant="accent"
               />
-            </Link>
-          </div>
-        </motion.div>
+              <Link
+                className="group inline-flex min-h-11 shrink-0 items-center gap-1.5 border border-white/65 bg-[#02183f]/20 px-3 py-2 text-xs font-bold text-white backdrop-blur-[2px] transition hover:border-white hover:bg-white hover:text-[#04215e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928] sm:gap-2 sm:px-4 sm:text-sm"
+                href="/oferta-academica"
+              >
+                Ver oferta académica
+                <ArrowRight
+                  aria-hidden="true"
+                  className="h-3.5 w-3.5 text-[#e7a928] transition-transform group-hover:translate-x-1 sm:h-4 sm:w-4"
+                />
+              </Link>
+            </div>
+          </motion.div>
+        </div>
       </div>
 
       <div

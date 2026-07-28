@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { FacebookPixel } from "@/components/facebook-pixel";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { RouteScrollReset } from "@/components/route-scroll-reset";
 import { FloatingWhatsApp } from "@/components/whatsapp-button";
 import {
   absoluteUrl,
@@ -9,7 +10,7 @@ import {
   metadataBaseUrl,
   seoConfig,
 } from "@/data/seo";
-import { siteConfig } from "@/data/site";
+import { siteConfig, socialLinks } from "@/data/site";
 import "./globals.css";
 
 const structuredData = [
@@ -24,6 +25,7 @@ const structuredData = [
     description: seoConfig.description,
     email: siteConfig.email,
     telephone: siteConfig.phone,
+    sameAs: socialLinks.map(({ href }) => href),
     areaServed: seoConfig.areaServed,
     address: {
       "@type": "PostalAddress",
@@ -151,6 +153,7 @@ export default function RootLayout({
       className="h-full scroll-smooth antialiased"
     >
       <body className="flex min-h-full flex-col">
+        <RouteScrollReset />
         <FacebookPixel pixelId="27722412507444476" />
         <a className="skip-link" href="#main-content">
           Saltar al contenido

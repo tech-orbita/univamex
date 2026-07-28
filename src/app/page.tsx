@@ -6,6 +6,7 @@ import { HomeFaqPreview } from "@/components/home-faq-preview";
 import { HomeInstitutional } from "@/components/home-institutional";
 import { HomePathways } from "@/components/home-pathways";
 import { ProgramLevelsPreview } from "@/components/program-levels-preview";
+import { SiteMotionShell } from "@/components/site-motion-shell";
 
 export const metadata: Metadata = {
   title: "Universidad en Ecatepec | UNIVAMEX",
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="home-main">
+    <SiteMotionShell className="home-main">
       <Hero />
       <ProgramLevelsPreview />
       <HomePathways />
@@ -23,6 +24,6 @@ export default function Home() {
       <HomeCampusPreview />
       <HomeFaqPreview />
       <HomeContactGuide />
-    </main>
+    </SiteMotionShell>
   );
 }

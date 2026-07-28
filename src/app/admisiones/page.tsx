@@ -23,21 +23,41 @@ export default function AdmisionesPage() {
         image="/images/GRADOS.png"
         imageClassName="object-[58%_center]"
       />
-      <section className="bg-[#F8FAFC] px-4 py-9 sm:px-6 sm:py-12 lg:px-10">
-        <div className="mx-auto grid max-w-7xl gap-6 sm:gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-10">
-          <div>
-            <SectionHeading
-              title="Documentos por nivel"
-              description="Revisa lo que necesitas para bachillerato, licenciatura, maestría o doctorado. Horarios, ubicación y fechas de inicio deben confirmarse con un asesor."
-            />
-            <div className="mt-5 sm:mt-8">
-              <WhatsAppButton
-                label="Revisar mis documentos"
-                question="admisiones y documentos"
-              />
+      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_88%_18%,rgba(231,169,40,0.18),transparent_28%),linear-gradient(135deg,#f8fafc_0%,#edf4ff_62%,#fff8e8_100%)] px-4 py-14 text-[#04215e] sm:px-6 sm:py-20 lg:px-10 lg:py-24">
+        <div
+          aria-hidden="true"
+          className="absolute -right-24 top-0 h-full w-[38%] skew-x-[-9deg] border-l border-[#1e40af]/10 bg-white/30"
+        />
+        <div className="relative mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 gap-8 border-b border-[#04215e]/15 pb-9 lg:grid-cols-12 lg:items-end lg:gap-12 lg:pb-12">
+            <div className="lg:col-span-7">
+              <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#b45309]">
+                Documentación
+              </p>
+              <h2 className="mt-3 max-w-4xl font-editorial text-4xl font-semibold leading-[1.02] sm:text-5xl lg:text-6xl">
+                Prepara los documentos correspondientes a tu nivel.
+              </h2>
+            </div>
+            <div className="lg:col-span-5">
+              <p className="max-w-lg text-base leading-7 text-slate-600">
+                Consulta los requisitos para bachillerato, licenciatura,
+                maestría y doctorado. Un asesor puede ayudarte a confirmar
+                horarios, modalidad y fechas de inicio.
+              </p>
+              <div className="mt-8">
+                <WhatsAppButton
+                  className="w-full sm:w-fit"
+                  label="Revisar mis documentos"
+                  question="admisiones y documentos"
+                  source="Documentación de admisiones"
+                  variant="accent"
+                />
+              </div>
             </div>
           </div>
-          <AdmissionsChecklist />
+          <div className="mt-8 sm:mt-10">
+            <AdmissionsChecklist variant="program" />
+          </div>
         </div>
       </section>
 

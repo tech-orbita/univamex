@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { MessageCircle } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
@@ -15,6 +16,7 @@ type WhatsAppButtonProps = {
     | "light"
     | "accent";
   className?: string;
+  icon?: "message" | "whatsapp";
 };
 
 const variants = {
@@ -38,6 +40,7 @@ export function WhatsAppButton({
   question,
   variant = "primary",
   className,
+  icon = "message",
 }: WhatsAppButtonProps) {
   return (
     <a
@@ -50,7 +53,18 @@ export function WhatsAppButton({
       target="_blank"
       rel="noopener noreferrer"
     >
-      <MessageCircle aria-hidden="true" className="h-4 w-4" />
+      {icon === "whatsapp" ? (
+        <Image
+          aria-hidden="true"
+          alt=""
+          className="h-8 w-8"
+          height={512}
+          src="/icons/whatsapp.png"
+          width={512}
+        />
+      ) : (
+        <MessageCircle aria-hidden="true" className="h-4 w-4" />
+      )}
       <span>{label}</span>
     </a>
   );
@@ -60,7 +74,8 @@ export function FloatingWhatsApp() {
   return (
     <div className="fixed bottom-[calc(0.75rem+env(safe-area-inset-bottom))] right-3 z-40 sm:bottom-6 sm:right-6">
       <WhatsAppButton
-        className="h-12 w-12 !rounded-full p-0 shadow-xl shadow-slate-950/25 sm:h-16 sm:w-16 [&>span]:sr-only"
+        className="h-12 w-12 !rounded-full !bg-transparent !p-0 shadow-xl shadow-slate-950/25 transition-transform hover:scale-105 sm:h-16 sm:w-16 [&>img]:h-full [&>img]:w-full [&>span]:sr-only"
+        icon="whatsapp"
         label="Solicitar informes por WhatsApp"
         source="Acceso flotante"
         variant="floating"

@@ -7,12 +7,25 @@ export const siteConfig = {
   whatsappDisplay: "55-29-94-53-81",
   whatsappNumber: "525529945381",
   email: "informes@univamex.edu.mx",
-  facebook: "Colegio Universitario del Valle de México - UNIVAMEX",
-  instagram: "https://www.instagram.com/univamex_oficial/",
   website: "www.univamex.com",
   baseUrl: "https://www.univamex.com",
   serviceHours: "Lunes a sábado, de 8:00 a 18:00 h",
 };
+
+export const socialLinks = [
+  {
+    platform: "Facebook",
+    brand: "facebook",
+    handle: siteConfig.fullName,
+    href: "https://www.facebook.com/Universitariodelvalledemexico",
+  },
+  {
+    platform: "Instagram",
+    brand: "instagram",
+    handle: "@univamex_oficial",
+    href: "https://www.instagram.com/univamex_oficial/",
+  },
+] as const;
 
 export const navItems: NavItem[] = [
   { label: "Inicio", href: "/" },

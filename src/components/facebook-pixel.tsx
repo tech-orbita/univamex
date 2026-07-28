@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 
 declare global {
   interface Window {
-    fbq: (...args: any[]) => void;
+    fbq: (...args: unknown[]) => void;
   }
 }
 
@@ -43,6 +43,7 @@ export function FacebookPixel({ pixelId }: FacebookPixelProps) {
       </Script>
 
       <noscript>
+        {/* eslint-disable-next-line @next/next/no-img-element -- Meta requires a raw noscript tracking pixel. */}
         <img
           height="1"
           width="1"

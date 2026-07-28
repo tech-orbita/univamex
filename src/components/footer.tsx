@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Camera, Clock3, Mail, Phone, Share2 } from "lucide-react";
-import { footerNavItems, siteConfig } from "@/data/site";
+import { Clock3, Mail, Phone } from "lucide-react";
+import { BrandIcon } from "@/components/brand-icon";
 import { WhatsAppButton } from "@/components/whatsapp-button";
+import { footerNavItems, siteConfig, socialLinks } from "@/data/site";
 
 export function Footer() {
   return (
@@ -26,6 +27,28 @@ export function Footer() {
               source="Footer"
               variant="floating"
             />
+          </div>
+          <div
+            aria-label="Redes sociales oficiales"
+            className="mt-4 flex flex-wrap gap-2"
+            role="group"
+          >
+            {socialLinks.map((social) => (
+              <a
+                aria-label={`Abrir ${social.platform} oficial de UNIVAMEX`}
+                className="group inline-flex min-h-11 items-center gap-2 border border-white/20 px-3 text-sm font-bold text-slate-200 transition hover:-translate-y-0.5 hover:border-[#e7a928] hover:bg-white hover:text-[#04215e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928]"
+                href={social.href}
+                key={social.platform}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <BrandIcon
+                  brand={social.brand}
+                  className="h-5 w-5 transition-transform duration-300 group-hover:scale-110"
+                />
+                {social.platform}
+              </a>
+            ))}
           </div>
         </div>
 
@@ -65,16 +88,6 @@ export function Footer() {
             <li className="flex gap-2">
               <Clock3 aria-hidden="true" className="mt-0.5 h-4 w-4" />
               <span>{siteConfig.serviceHours}</span>
-            </li>
-            <li className="flex gap-2">
-              <Share2 aria-hidden="true" className="mt-0.5 h-4 w-4" />
-              <span>{siteConfig.facebook}</span>
-            </li>
-            <li className="flex gap-2">
-              <Camera aria-hidden="true" className="mt-0.5 h-4 w-4" />
-              <a className="transition hover:text-white" href={siteConfig.instagram} target="_blank" rel="noopener noreferrer">
-                Instagram oficial
-              </a>
             </li>
           </ul>
         </div>

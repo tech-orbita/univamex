@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { BrainCircuit, BriefcaseBusiness, GraduationCap } from "lucide-react";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 
@@ -36,6 +37,7 @@ export function ProgramInsights({
   careerLead,
 }: ProgramInsightsProps) {
   const [activeId, setActiveId] = useState<InsightId>("ai");
+  const reduceMotion = useReducedMotion();
   const panels: InsightPanel[] = [
     {
       id: "ai",
@@ -78,7 +80,7 @@ export function ProgramInsights({
   }
 
   return (
-    <div className="grid border border-[#cbd5e1] bg-white lg:grid-cols-[0.7fr_1.3fr]">
+    <div className="grid overflow-hidden border border-[#cbd5e1] bg-white shadow-xl shadow-[#04215e]/5 lg:grid-cols-[0.82fr_1.18fr]">
       <div className="bg-[#04215e] p-5 text-white sm:p-7">
         <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#f0bd4b]">Explora la carrera</p>
         <h2 className="mt-3 max-w-sm font-editorial text-3xl font-semibold leading-[1.05] sm:text-4xl">Una mirada rápida a tu futuro profesional.</h2>
@@ -91,7 +93,7 @@ export function ProgramInsights({
               <button
                 aria-controls={`insight-panel-${panel.id}`}
                 aria-selected={selected}
-                className={`flex min-h-12 items-center gap-3 border-l-2 px-3 py-3 text-left text-sm font-bold transition focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#e7a928] ${selected ? "border-[#e7a928] bg-white/10 text-white" : "border-white/20 text-white/65 hover:border-white/70 hover:text-white"}`}
+                className={`group flex min-h-12 items-center gap-3 border-l-2 px-3 py-3 text-left text-sm font-bold transition-[transform,background-color,border-color,color] duration-300 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#e7a928] ${selected ? "translate-x-1 border-[#e7a928] bg-white/10 text-white" : "border-white/20 text-white/65 hover:translate-x-1 hover:border-white/70 hover:text-white"}`}
                 id={`insight-tab-${panel.id}`}
                 key={panel.id}
                 role="tab"
@@ -105,7 +107,7 @@ export function ProgramInsights({
                   }
                 }}
               >
-                <Icon aria-hidden="true" className="h-4 w-4 shrink-0" />
+                <Icon aria-hidden="true" className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:scale-110" />
                 {panel.label}
               </button>
             );
@@ -113,12 +115,18 @@ export function ProgramInsights({
         </div>
       </div>
 
-      <section
+      <AnimatePresence initial={false} mode="wait">
+      <motion.section
+        animate={{ opacity: 1, x: 0 }}
         aria-labelledby={`insight-tab-${active.id}`}
-        className="p-5 sm:p-7"
+        className="p-5 sm:p-7 lg:p-9"
+        exit={reduceMotion ? undefined : { opacity: 0, x: -16 }}
         id={`insight-panel-${active.id}`}
+        initial={reduceMotion ? false : { opacity: 0, x: 22 }}
+        key={active.id}
         role="tabpanel"
         tabIndex={0}
+        transition={{ duration: 0.34, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="flex items-start justify-between gap-4">
           <div>
@@ -130,7 +138,7 @@ export function ProgramInsights({
         <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">{active.lead}</p>
         <div className="mt-6 grid border-y border-slate-200 sm:grid-cols-2">
           {active.items.map((item) => (
-            <p className="border-b border-slate-200 px-4 py-3 text-sm font-semibold leading-6 text-slate-800 last:border-b-0 sm:[&:nth-child(odd)]:border-r sm:[&:nth-last-child(-n+2)]:border-b-0" key={item}>
+            <p className="border-b border-slate-200 px-4 py-3 text-sm font-semibold leading-6 text-slate-800 transition-colors duration-300 hover:bg-[#eff6ff] last:border-b-0 sm:[&:nth-child(odd)]:border-r sm:[&:nth-last-child(-n+2)]:border-b-0" key={item}>
               {item}
             </p>
           ))}
@@ -146,7 +154,8 @@ export function ProgramInsights({
             variant="ghost"
           />
         </div>
-      </section>
+      </motion.section>
+      </AnimatePresence>
     </div>
   );
 }

@@ -34,7 +34,9 @@
 
 html {
   background: var(--navy-950);
-  overflow-x: hidden;
+  overflow-x: clip;
+  scroll-behavior: smooth;
+  scroll-padding-top: 9rem;
 }
 
 body {
@@ -42,7 +44,7 @@ body {
   color: var(--foreground);
   font-family: var(--font-body);
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
   width: 100%;
 }
 
@@ -98,6 +100,24 @@ main:not(.home-main) {
   text-wrap: balance;
 }
 
+@keyframes program-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.program-marquee-track {
+  animation: program-marquee 28s linear infinite;
+  will-change: transform;
+}
+
+.program-marquee-track:hover {
+  animation-play-state: paused;
+}
+
 @media (min-width: 640px) {
   main:not(.home-main) {
     padding-top: 5rem;
@@ -105,6 +125,11 @@ main:not(.home-main) {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .program-marquee-track {
+    animation: none;
+    transform: none;
+  }
+
   *,
   *::before,
   *::after {

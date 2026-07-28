@@ -10,7 +10,10 @@ export function HomeCampusPreview() {
       className="bg-[#f3f6fb] px-4 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-20"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col gap-4 sm:gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div
+          className="flex flex-col gap-4 sm:gap-6 lg:flex-row lg:items-end lg:justify-between"
+          data-motion="rise"
+        >
           <div className="max-w-3xl">
             <p className="text-sm font-bold text-[#b45309]">Campus</p>
             <h2
@@ -33,22 +36,27 @@ export function HomeCampusPreview() {
           </Link>
         </div>
 
-        <div className="mt-6 grid gap-4 sm:mt-8 sm:gap-5 lg:mt-10 lg:grid-cols-2">
+        <div
+          className="mt-6 grid gap-4 sm:mt-8 sm:gap-5 lg:mt-10 lg:grid-cols-2"
+          data-motion-group
+        >
           {campuses.map((campus) => (
             <article
-              className="min-w-0 overflow-hidden border border-slate-200 bg-white"
+              className="group flex h-full min-w-0 flex-col overflow-hidden border border-slate-200 bg-white transition duration-500 hover:-translate-y-1 hover:border-[#e7a928] hover:shadow-2xl hover:shadow-slate-950/10 focus-within:-translate-y-1 focus-within:border-[#e7a928] focus-within:shadow-2xl focus-within:shadow-slate-950/10"
+              data-motion-item
               key={campus.name}
             >
-              <div className="relative aspect-video bg-slate-200">
+              <div className="aspect-video overflow-hidden bg-slate-200">
                 <Image
                   src={campus.image}
                   alt={campus.imageAlt}
-                  fill
+                  width={campus.imageWidth}
+                  height={campus.imageHeight}
                   sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover"
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035] group-focus-within:scale-[1.035]"
                 />
               </div>
-              <div className="p-4 sm:p-6">
+              <div className="flex flex-1 flex-col p-4 sm:p-6">
                 <h3 className="font-editorial text-xl font-semibold leading-snug text-[#04215e] sm:text-2xl">
                   {campus.name}
                 </h3>
@@ -59,16 +67,16 @@ export function HomeCampusPreview() {
                   />
                   <span>{campus.address}</span>
                 </p>
-                <div className="mt-4 grid grid-cols-2 gap-2 sm:mt-6 sm:flex sm:gap-3">
+                <div className="mt-auto grid grid-cols-2 gap-2 pt-4 sm:flex sm:gap-3 sm:pt-6">
                   <Link
-                    className="inline-flex min-h-11 items-center justify-center gap-2 bg-[#04215e] px-4 text-sm font-bold text-white"
+                    className="inline-flex min-h-11 items-center justify-center gap-2 bg-[#04215e] px-4 text-sm font-bold text-white transition duration-300 hover:bg-[#0b327f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928]"
                     href="/campus"
                   >
                     Ver campus
                     <ArrowRight aria-hidden="true" className="h-4 w-4" />
                   </Link>
                   <Link
-                    className="inline-flex min-h-11 items-center justify-center gap-2 border border-slate-300 px-4 text-sm font-bold text-[#04215e]"
+                    className="inline-flex min-h-11 items-center justify-center gap-2 border border-slate-300 px-4 text-sm font-bold text-[#04215e] transition duration-300 hover:border-[#04215e] hover:bg-[#eff6ff] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928]"
                     href={campus.mapUrl}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -82,7 +90,10 @@ export function HomeCampusPreview() {
           ))}
         </div>
 
-        <div className="mt-4 flex flex-col gap-3 border-l-4 border-[#e7a928] bg-white p-4 sm:mt-6 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:p-5">
+        <div
+          className="mt-4 flex flex-col gap-3 border-l-4 border-[#e7a928] bg-white p-4 sm:mt-6 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:p-5"
+          data-motion="rise"
+        >
           <p className="text-sm leading-6 text-slate-600">
             También puedes recorrer virtualmente la explanada y las canchas del
             Campus Ciudad Azteca.

@@ -9,7 +9,7 @@ export function HomeContactGuide() {
   return (
     <section className="bg-[#04215e] px-4 py-10 text-white sm:px-6 sm:py-14 lg:px-10 lg:py-20" id="solicitar-informes">
       <div className="mx-auto grid max-w-7xl gap-6 sm:gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start lg:gap-10">
-        <div className="lg:sticky lg:top-28">
+        <div className="lg:sticky lg:top-28" data-motion="rise">
           <p className="text-sm font-bold text-[#e7a928]">Solicita orientación</p>
           <h2 className="mt-2 max-w-xl font-heading text-[1.75rem] font-semibold leading-[1.04] sm:mt-3 sm:text-4xl sm:leading-[1.02] lg:text-5xl">
             Llega a admisiones con tu interés claro
@@ -30,11 +30,13 @@ export function HomeContactGuide() {
           </Link>
         </div>
 
-        <GuidedWhatsAppForm
-          programs={programs.map(({ name, level }) => ({ name, level }))}
-          campuses={campuses.map(({ name }) => name)}
-          source="Home"
-        />
+        <div data-motion-media>
+          <GuidedWhatsAppForm
+            programs={programs.map(({ name, level }) => ({ name, level }))}
+            campuses={campuses.map(({ name }) => name)}
+            source="Home"
+          />
+        </div>
       </div>
     </section>
   );

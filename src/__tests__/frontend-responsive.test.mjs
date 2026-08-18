@@ -17,6 +17,9 @@ test("la ficha editorial integra breadcrumb, imagen full-bleed y metadata en el 
   assert.match(page, /lg:h-\[70svh\]/);
   assert.match(page, /max-w-6xl/);
   assert.match(page, /max-w-\[42rem\]/);
+  assert.match(page, /const hasExtendedHeroTitle = program\.name\.length > 55/);
+  assert.match(page, /text-\[clamp\(1\.75rem,7\.4vw,2rem\)\]/);
+  assert.match(page, /lg:text-\[clamp\(2\.25rem,3\.5vw,3\.5rem\)\]/);
   assert.match(page, /tone="inverse"/);
   assert.match(page, /lg:\[clip-path:polygon/);
   assert.match(page, /grid-flow-dense grid-cols-2/);

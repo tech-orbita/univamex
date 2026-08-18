@@ -125,6 +125,7 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
       value: program.subjects ?? "por confirmar",
     },
   ];
+  const hasExtendedHeroTitle = program.name.length > 55;
 
   return (
     <ProgramMotionShell>
@@ -152,7 +153,13 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
 
           <div className="flex pt-3 sm:pt-5 lg:flex-1 lg:items-center lg:pb-8 lg:pt-2">
             <div className="max-w-[42rem] lg:w-[47%]" data-hero-copy>
-              <h1 className="max-w-[42rem] font-heading text-[clamp(2.15rem,4.8vw,4.75rem)] font-semibold leading-[0.97] tracking-[-0.04em] text-balance">
+              <h1
+                className={`max-w-[42rem] font-heading font-semibold leading-[0.97] tracking-[-0.04em] text-balance ${
+                  hasExtendedHeroTitle
+                    ? "text-[clamp(1.75rem,7.4vw,2rem)] sm:text-[clamp(2.15rem,4.8vw,4.75rem)] lg:text-[clamp(2.25rem,3.5vw,3.5rem)] lg:leading-[0.98] lg:tracking-[-0.035em]"
+                    : "text-[clamp(2.15rem,4.8vw,4.75rem)]"
+                }`}
+              >
                 {program.name}
               </h1>
               <p className="mt-4 max-w-xl text-sm leading-6 text-white/82 sm:mt-5 sm:text-lg sm:leading-7 lg:mt-6">
